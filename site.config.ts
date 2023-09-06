@@ -10,11 +10,11 @@ export default siteConfig({
 
   // basic site info (required)
   name: 'GalaxyLog',
-  domain: '',
-  author: '2skydev',
+  domain: 'https://galaxylog.vercel.app/',
+  author: 'galaxy4276',
 
   // open graph metadata (optional)
-  description: '2skydev blog - developer blog',
+  description: 'galaxy blog - devlog',
 
   // social usernames (optional)
   // twitter: 'transitive_bs',
