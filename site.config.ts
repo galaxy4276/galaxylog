@@ -51,10 +51,10 @@ export default siteConfig({
   // important pages
   navigationStyle: 'custom',
   navigationLinks: [
-    // {
-    //   title: '카테고리',
-    //   pageId: '36400db511474331b5c1de6918212469',
-    // },
+    {
+      title: '카테고리',
+      pageId: '08c00f4bc01b4c41b5b762e2bab508f7',
+    },
     // {
     //   title: '카테고리',
     //   pageId: '36400db511474331b5c1de6918212469',
