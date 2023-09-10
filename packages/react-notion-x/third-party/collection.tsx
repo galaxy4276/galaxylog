@@ -174,7 +174,6 @@ const CollectionViewBlock: React.FC<{
         {title && (
           <div className="notion-collection-header-title">
             <PageIcon block={block} className="notion-page-title-icon" hideDefaultIcon />
-
             {title}
           </div>
         )}

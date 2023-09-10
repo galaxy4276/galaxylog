@@ -29,7 +29,14 @@ export const CollectionViewGallery: React.FC<CollectionViewProps> = ({
     (collectionData['collection_group_results']?.blockIds ?? collectionData.blockIds) ||
     defaultBlockIds;
 
-  return <Gallery collectionView={collectionView} collection={collection} blockIds={blockIds} />;
+  const articleLength: number = collectionView['page_sort']?.length || 0;
+
+  return (
+    <div>
+      <span className="span--totally__article">전체 게시글: {articleLength}개</span>
+      <Gallery collectionView={collectionView} collection={collection} blockIds={blockIds} />
+    </div>
+  );
 };
 
 function Gallery({ blockIds, collectionView, collection }) {
