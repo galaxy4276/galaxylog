@@ -40,26 +40,48 @@ function Gallery({ blockIds, collectionView, collection }) {
     gallery_cover_aspect = 'cover',
   } = collectionView.format || {};
 
+  const limit = collectionView.format['inline_collection_first_load_limit'].limit || 0;
+
   return (
     <div className="">
       <div className="postListWrap">
         <div className={'postList'}>
-          {blockIds?.map(blockId => {
-            const block = recordMap.block[blockId]?.value as PageBlock;
-            if (!block) return null;
+          {limit === 0 && (
+            blockIds?.map(blockId => {
+              const block = recordMap.block[blockId]?.value as PageBlock;
+              if (!block) return null;
 
-            return (
-              <CollectionCard
-                collection={collection}
-                block={block}
-                cover={gallery_cover}
-                coverSize={gallery_cover_size}
-                coverAspect={gallery_cover_aspect}
-                properties={collectionView.format?.gallery_properties}
-                key={blockId}
-              />
-            );
-          })}
+              return (
+                <CollectionCard
+                  collection={collection}
+                  block={block}
+                  cover={gallery_cover}
+                  coverSize={gallery_cover_size}
+                  coverAspect={gallery_cover_aspect}
+                  properties={collectionView.format?.gallery_properties}
+                  key={blockId}
+                />
+              );
+            })
+          )}
+          {limit !== 0 && (
+            blockIds?.slice(0, limit).map(blockId => {
+              const block = recordMap.block[blockId]?.value as PageBlock;
+              if (!block) return null;
+
+              return (
+                <CollectionCard
+                  collection={collection}
+                  block={block}
+                  cover={gallery_cover}
+                  coverSize={gallery_cover_size}
+                  coverAspect={gallery_cover_aspect}
+                  properties={collectionView.format?.gallery_properties}
+                  key={blockId}
+                />
+              );
+            })
+          )}
         </div>
       </div>
     </div>
